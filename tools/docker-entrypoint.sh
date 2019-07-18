@@ -17,6 +17,8 @@ elif [ "$LIGHTNINGD_CHAIN" == "btc" ] && [ "$LIGHTNINGD_NETWORK" == "testnet" ];
     LIGHTNINGD_NETWORK_NAME="testnet"
 elif [ "$LIGHTNINGD_CHAIN" == "btc" ] && [ "$LIGHTNINGD_NETWORK" == "regtest" ]; then
     LIGHTNINGD_NETWORK_NAME="regtest"
+elif [ "$LIGHTNINGD_CHAIN" == "btc" ] && [ "$LIGHTNINGD_NETWORK" == "signet" ]; then
+    LIGHTNINGD_NETWORK_NAME="signet"
 elif [ "$LIGHTNINGD_CHAIN" == "ltc" ] && [ "$LIGHTNINGD_NETWORK" == "mainnet" ]; then
     LIGHTNINGD_NETWORK_NAME="litecoin"
 elif [ "$LIGHTNINGD_CHAIN" == "ltc" ] && [ "$LIGHTNINGD_NETWORK" == "testnet" ]; then
