@@ -9,6 +9,8 @@
 #define BIP32_VER_MAIN_PRIVATE 0x0488ADE4
 #define BIP32_VER_TEST_PUBLIC  0x043587CF
 #define BIP32_VER_TEST_PRIVATE 0x04358394
+#define BIP32_VER_SIGT_PUBLIC  0x043587CF
+#define BIP32_VER_SIGT_PRIVATE 0x04358394
 
 const struct chainparams networks[] = {
     {.network_name = "bitcoin",
@@ -46,6 +48,20 @@ const struct chainparams networks[] = {
      .p2sh_version = 196,
      .testnet = true,
      .bip32_key_version = {.bip32_pubkey_version = BIP32_VER_TEST_PUBLIC, .bip32_privkey_version = BIP32_VER_TEST_PRIVATE}},
+    {.network_name = "signet",
+     .bip173_name = "sb",
+     .genesis_blockhash = {{{.u.u8 = {0x2d, 0x09, 0x8b, 0x08, 0x55, 0x1b, 0xf3, 0xda, 0xb1, 0xa2, 0x72, 0xa8, 0x71, 0x4a, 0x12, 0x9d, 0x06, 0x5c, 0xfb, 0x32, 0xfa, 0x7e, 0x18, 0xdf, 0x00, 0x99, 0x09, 0x5f, 0xbc, 0xd8, 0x53, 0x62}}}},
+     .rpc_port = 38332,
+     .cli = "bitcoin-cli",
+     .cli_args = "-signet",
+     .dust_limit = { 546 },
+     .max_funding = AMOUNT_SAT_INIT((1 << 24) - 1),
+     .max_payment = AMOUNT_MSAT_INIT(0xFFFFFFFFULL),
+     .when_lightning_became_cool = 1,
+     .p2pkh_version = 125,
+     .p2sh_version = 87,
+     .testnet = false,
+     .bip32_key_version = {.bip32_pubkey_version = BIP32_VER_SIGT_PUBLIC, .bip32_privkey_version = BIP32_VER_SIGT_PRIVATE}},
     {.network_name = "testnet",
      .bip173_name = "tb",
      .genesis_blockhash = {{{.u.u8 = {0x43, 0x49, 0x7f, 0xd7, 0xf8, 0x26, 0x95, 0x71, 0x08, 0xf4, 0xa3, 0x0f, 0xd9, 0xce, 0xc3, 0xae, 0xba, 0x79, 0x97, 0x20, 0x84, 0xe9, 0x0e, 0xad, 0x01, 0xea, 0x33, 0x09, 0x00, 0x00, 0x00, 0x00}}}},
